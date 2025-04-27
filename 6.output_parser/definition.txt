@@ -1,0 +1,18 @@
+What are output parsers in langchain and what are its uses??
+
+Output parsers in LangChain are components used to convert raw LLM output (usually plain text) into a structured format like:
+
+(Python objects (e.g., dict, list)
+Pydantic models
+TypedDicts
+JSON
+Custom classes)
+
+They help you reliably extract and interpret the model’s response so you can programmatically use it in your application.
+
+#stringOutput parser (strOutputParser)
+This is the simplest output parser in langchain. used to parse the output
+of llm and return it a plain string
+
+#structured output parser: helps extract structured json data from the llm
+based on predefined schema

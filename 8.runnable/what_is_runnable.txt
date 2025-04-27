@@ -1,0 +1,19 @@
+🛠️ In LangChain, Runnables are used for:
+Sending a prompt to a model (like Groq, OpenAI, etc.)
+Getting a response back.
+Combining many small tasks together into a bigger task (like building Lego).
+
+
+
+✨ Why are Runnables useful?
+You can easily connect many parts together.
+You can reuse them again and again.
+You can build bigger things (like chains, workflows) from small Runnables.
+
+ex:
+runnable = llm.with_prompt(prompt_template)
+response = runnable.invoke({"input": "Tell me a joke"})
+
+These runnable are of two types:
+1) Task specific runnable-
+2) Runnable primitives- 
