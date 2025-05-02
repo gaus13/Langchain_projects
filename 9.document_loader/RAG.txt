@@ -1,0 +1,13 @@
+what is RAG?
+What are RAG based application?
+
+Benefits of using RAG?
+1) use of up to date info
+2) better privacy
+3) no limit of document size
+
+What are the imp components used to build RAG based app?
+~ document loader
+~ text splitter
+~ vector Db
+~ retrievers

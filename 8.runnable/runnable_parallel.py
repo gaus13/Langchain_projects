@@ -2,8 +2,8 @@ from langchain_groq import ChatGroq
 import os
 from dotenv import load_dotenv
 from langchain_core.prompts import PromptTemplate
-from langchain.output_parsers import StructuredOutputParser
 from langchain.schema.runnable import RunnableSequence, RunnableParallel
+
 # Load environment variables
 load_dotenv()
 
@@ -17,21 +17,29 @@ llm = ChatGroq(
     temperature=0  # Important to make output less random
 )
 
+# Define the prompts
 prompt1 = PromptTemplate(
-    template= 'Generate a tweet about {topic}',
+    template= 'Generate a tweet and a LinkedIn post about {topic}. Return the output as a JSON object with keys "tweet" and "linkedin": {{ "tweet": "<tweet_text>", "linkedin": "<linkedin_text>" }}',
     input_variables= ['topic']
 )
 
-
-prompt2 = PromptTemplate(
-    template= 'Generate a Linkedin post about {topic}',
-    input_variables= ['topic']
-)
-
-parser = StructuredOutputParser()
-
-# you initialize runnable parallel as dictionary 
+# Define the parallel chain
 parallel_chain = RunnableParallel({
-    'tweet': RunnableSequence(prompt1 , llm, parser),
-    ' '
+    'content': RunnableSequence(prompt1, llm)
 })
+
+# Invoke the parallel chain and get the result
+result = parallel_chain.invoke({'topic': 'AI'})
+
+# Extract and clean up the output (just the tweet and linkedin)
+response_content = result['content'].content
+
+# Extract the JSON-like content from the raw message
+start = response_content.find("{")
+end = response_content.rfind("}") + 1
+clean_json = response_content[start:end]
+
+# Print only the relevant output (tweet and linkedin)
+print("Cleaned Output:", clean_json)
+
+
