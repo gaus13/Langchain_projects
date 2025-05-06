@@ -11,3 +11,29 @@ What are the imp components used to build RAG based app?
 ~ text splitter
 ~ vector Db
 ~ retrievers
+
+Langchain mein bohot se doc-loader hai
+4 most imp are: text loader, pyPDFloader, webbaseLoader, csvLoader
+~in doc loader the text is always stored as py list.
+
+~pyPDFloader is a doc loader in Langchain used to load content from pdf files and 
+convert each page into a document object.(not great with scanned pdfs)
+
+~ In LangChain, the DirectoryLoader (often used with a specific file loader like TextLoader, PyPDFLoader, etc.) is a utility that allows you to load multiple files from a directory at once,
+ rather than loading each file individually.
+
+~ also what is the diff btw load and lazy_load in LangChain
+#load() — Eager Loading
+Loads all documents immediately into memory.
+Returns a list of Document objects.
+Ideal when you expect a small to medium number of files or need all data upfront.
+
+#lazy_load() — Lazy Loading (Generator)
+Returns a generator instead of a list.
+Documents are loaded one by one as you iterate over the result.
+Memory-efficient and better for large datasets (e.g., 1000s of files or huge PDFs)
+
+~what is webbaseLoader in Langchain
+A web-based loader in LangChain is used to load data from websites 
+or online sources (instead of local files like PDFs or text).
+It fetches and reads content from a webpage URL, then converts it into a format (like a Document object) that LangChain can use.
