@@ -1,0 +1,13 @@
+🔍 Why Are Text Splitters Important?
+Most LLMs (like GPT-4) have context length limits (e.g., 8K, 32K tokens). Feeding large documents or long articles directly isn't practical or possible.
+ Instead:
+~Split the text into logical, small chunks.
+~Process or embed each chunk individually.
+~This improves efficiency, accuracy, and retrievability when used with vector stores, retrieval-augmented generation (RAG), QA systems, and more.
+
+types of text Splitters:
+1) length based text Splitting- we decide chunk size and it Splits but doesnt maintain the grammar, word context etc.
+2) Text-structure based Splitting (recursive char text splitter) this is widely used.
+3) Document structure based
+4) Semantic meaning based 
+

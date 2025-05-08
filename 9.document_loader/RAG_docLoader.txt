@@ -37,3 +37,4 @@ Memory-efficient and better for large datasets (e.g., 1000s of files or huge PDF
 A web-based loader in LangChain is used to load data from websites 
 or online sources (instead of local files like PDFs or text).
 It fetches and reads content from a webpage URL, then converts it into a format (like a Document object) that LangChain can use.
+
